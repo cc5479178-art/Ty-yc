@@ -8,6 +8,20 @@ A full-stack e-commerce website for selling handmade crafts/ornaments:
 - **Owner email on every new registration** too
 - **Owner dashboard** — pending orders, packed/shipped/delivered counts, paid revenue, customers, low-stock warnings, order status updates, customer WhatsApp buttons, and product management
 
+## Install on a phone (PWA 📱)
+
+Once the site is hosted, it is an installable Progressive Web App: open the URL in the phone browser → **Android**: tap **"Add to Home screen" / "Install app"** in the browser menu → **iPhone**: tap **Share → Add to Home Screen**. CraftNest then opens full-screen with its own diya app icon, without any app store.
+
+## Deploy online (free, ~5 minutes)
+
+1. Push this repo to GitHub (done).
+2. Go to [render.com](https://render.com) → **New Web Service** → connect this repo.
+3. Build command: `npm install && npm run build:client`  •  Start command: `npm start`  •  Instance type: Free.
+4. Add the environment variables from `.env.example` in Render's dashboard (set `CLIENT_URL` to your Render URL, e.g. `https://craftnest.onrender.com`). Render's free tier gives you a live HTTPS URL + persistent disk for SQLite if attached.
+5. Create a Stripe webhook pointing to `https://YOUR-RENDER-URL/api/webhooks/stripe` and set `STRIPE_WEBHOOK_SECRET`.
+
+Alternatives: Railway, Fly.io, or any VPS — the app is a single Node process serving both API and the built frontend.
+
 ## Tech stack
 
 | Layer | Choice |
